@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router";
+import { Button } from "../components/Button";
+
 export const Navbar = () => {
+  const navigator = useNavigate();
   return (
     <nav className="w-screen p-5 bg-white shadow flex items-center justify-between">
       <div className="inline">
@@ -11,6 +15,14 @@ export const Navbar = () => {
           Chat
         </span>
       </div>
+      <Button
+        text={"Log out"}
+        onClick={() => {
+          const storage = window.sessionStorage;
+          storage.setItem("loggedIn", "false");
+          navigator('/login');
+        }}
+      />
       <div className="inline">
         <span className="text-sm cursor-pointer hover:text-cyan-500 duration-500">
           <img
