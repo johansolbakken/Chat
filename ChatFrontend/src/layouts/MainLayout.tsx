@@ -1,15 +1,14 @@
-import { Chat } from "../features/Chat";
-import { CharList } from "../features/ChatList";
 import { Navbar } from "./Navbar";
 
-export const MainLayout = () => {
+interface MainLayoutProps {
+  children: React.ReactNode;
+}
+
+export const MainLayout = (props: MainLayoutProps) => {
   return (
     <div className="w-screen h-screen bg-cyan-400">
       <Navbar />
-      <div className="h-full flex">
-        <CharList />
-        <Chat />
-      </div>
+      <div>{props.children}</div>
     </div>
   );
 };
